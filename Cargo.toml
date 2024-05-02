@@ -1,4 +1,4 @@
-workspace = { members = ["Q_20240502_claude3_karano_mondai"] }
+workspace = { members = ["q_20240502_claude3_karano_mondai"] }
 [package]
 name = "rust-playground"
 version = "0.1.0"
