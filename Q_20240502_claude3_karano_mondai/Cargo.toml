@@ -1,6 +1,5 @@
-workspace = { members = ["Q_20240502_claude3_karano_mondai"] }
 [package]
-name = "rust-playground"
+name = "Q_20240502_claude3_karano_mondai"
 version = "0.1.0"
 edition = "2021"
 
