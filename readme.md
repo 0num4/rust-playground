@@ -26,6 +26,8 @@ cirgo fmt、clippy、test が走ってる
 
 ## tokio
 
+**前提として rust の main は非同期にはできない。** #[tokio::main]をつけると、main 関数が非同期関数になる。
+
 ## await 演算子
 
 rust の async/await は、Future を返す
@@ -106,4 +108,13 @@ async fn main() {
   }
 }
 
+```
+
+# use hyper_util::rt::TokioIo;が無い
+
+cargo add tokio-util だけじゃだめ。
+feature = ["full"]を追加しないと使えない
+
+```
+cargo add tokio-util --features full
 ```
