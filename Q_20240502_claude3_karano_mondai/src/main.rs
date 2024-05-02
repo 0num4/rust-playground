@@ -1,6 +1,7 @@
-// fn q1(vec: Vec<i32>, value: i32) -> Option<i32>{
-//     Some(value)
-// }
+#[allow(dead_code)]
+fn q1(vec: Vec<i32>, value: i32) -> Option<i32>{
+    Some(value)
+}
 
 
 fn main() {
