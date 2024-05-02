@@ -201,6 +201,9 @@ dependencies = [
 [[package]]
 name = "rust-playground"
 version = "0.1.0"
+dependencies = [
+ "tokio",
+]
 
 [[package]]
 name = "rustc-demangle"
