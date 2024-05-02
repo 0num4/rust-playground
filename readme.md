@@ -90,3 +90,20 @@ async fn main() {
     handle.await.unwrap();
 }
 ```
+
+# Q&A formatter が効かない
+
+**[rust]セクションの "editor.defaultFormatter": "rust-lang.rust-analyzer"が一番重要**
+
+.vscode/settings.json
+
+```
+{
+  "editor.formatOnSave": true,
+  "[rust]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  }
+}
+
+```
