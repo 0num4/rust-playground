@@ -1,0 +1,3 @@
+[[disallowed-methods]]
+path = "std::thread::sleep"
+reason = "sleeping is not allowed in async functions"
