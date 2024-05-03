@@ -33,9 +33,19 @@ fn q1_3_match() {
         None => print!("non"),
     }
 }
+
+fn q1_3_expect() {
+    let f = Some(4);
+    let x: Option<i32> = None; // Noneを入れる場合optionの返り値がわからないので型を明示する必要がある
+    let n = x.expect("nyaaa");
+    //
+    print!("{}", n);
+}
+
 pub fn main() {
     q1_1();
     let ans = q1_3_option();
-    println!("ans is {}", ans.unwrap());
+    // println!("ans is {}", ans.unwrap());
     q1_3_match();
+    q1_3_expect();
 }
