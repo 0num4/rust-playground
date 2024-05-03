@@ -118,3 +118,9 @@ feature = ["full"]を追加しないと使えない
 ```
 cargo add tokio-util --features full
 ```
+
+# vec の操作
+
+iter() の操作(検索)には find, filter,retain などがある。
+
+**vec をそのまま検索したいときは get メソッドが使える！！**
