@@ -1,4 +1,8 @@
-use std::io::Error;
+use std::{
+    fs::File,
+    io::{Error, Read},
+    path::Path,
+};
 
 pub fn q1_1() {
     let mut v = vec![1; 4];
@@ -48,6 +52,14 @@ fn q1_4_esult(i: i32) -> Result<String, Error> {
     return Ok(i.to_string());
 }
 
+fn q1_4_fileopen(path: &Path) -> Result<String, Error> {
+    // let dis = path.display();
+    let mut a = File::open(&path)?;
+    let mut buf = String::new();
+    a.read_to_string(&mut buf)?;
+    Ok(buf)
+}
+
 pub fn main() {
     q1_1();
     let ans = q1_3_option();
@@ -55,4 +67,7 @@ pub fn main() {
     q1_3_match();
     q1_3_expect();
     let a = q1_4_esult(32);
+    let rspath = "main.rs";
+    let res = q1_4_fileopen(Path::new(rspath)).unwrap();
+    println!("{}", res);
 }
