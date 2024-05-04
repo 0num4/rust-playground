@@ -1,3 +1,5 @@
+use std::io::Error;
+
 pub fn q1_1() {
     let mut v = vec![1; 4];
     v.push(4);
@@ -42,10 +44,15 @@ fn q1_3_expect() {
     print!("{}", n);
 }
 
+fn q1_4_esult(i: i32) -> Result<String, Error> {
+    return Ok(i.to_string());
+}
+
 pub fn main() {
     q1_1();
     let ans = q1_3_option();
     // println!("ans is {}", ans.unwrap());
     q1_3_match();
     q1_3_expect();
+    let a = q1_4_esult(32);
 }

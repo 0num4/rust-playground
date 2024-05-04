@@ -124,3 +124,10 @@ cargo add tokio-util --features full
 iter() の操作(検索)には find, filter,retain などがある。
 
 **vec をそのまま検索したいときは get メソッドが使える！！**
+
+# Result の基礎
+
+Ok(val)で Result が作れる
+![alt text](image.png)
+?は剥がすのではなく伝搬させる
+https://claude.ai/chat/0778e660-3c79-46fb-b1a4-b4757c03a484
