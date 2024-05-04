@@ -131,3 +131,7 @@ Ok(val)で Result が作れる
 ![alt text](image.png)
 ?は剥がすのではなく伝搬させる
 https://claude.ai/chat/0778e660-3c79-46fb-b1a4-b4757c03a484
+
+# file::open
+
+src/以下ではなくプロジェクト root をみる

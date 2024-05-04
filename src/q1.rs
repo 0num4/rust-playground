@@ -60,14 +60,26 @@ fn q1_4_fileopen(path: &Path) -> Result<String, Error> {
     Ok(buf)
 }
 
+fn q1_4_match() {
+    let n = File::create("sofo.txt");
+    match n {
+        Err(why) => print!("{:?}", why),
+        Ok(_) => print!("ok"),
+    }
+}
+
 pub fn main() {
     q1_1();
     let ans = q1_3_option();
     // println!("ans is {}", ans.unwrap());
     q1_3_match();
-    q1_3_expect();
+    // q1_3_expect();
+    println!("q1_3_expect(); end");
     let a = q1_4_esult(32);
-    let rspath = "main.rs";
+    let rspath = "./src/main.rs"; // カレントターミナル(src/以下ではなくプロジェクトのroot)をみる
     let res = q1_4_fileopen(Path::new(rspath)).unwrap();
     println!("{}", res);
+    println!("q1_4_fileopen(); end");
+    q1_4_match();
+    println!("q1_4_match(); end");
 }
