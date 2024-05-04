@@ -1,6 +1,7 @@
 mod gacha;
 mod hypertest;
 mod q1;
+mod q2;
 mod tokiotest;
 
 fn main() {
