@@ -5,8 +5,12 @@ pub fn capitalize_first_letter(vecStr: Vec<String>) {
         .iter()
         .map(|s| {
             let mut svec: Chars = s.chars();
-            svec.next().unwrap().to_ascii_uppercase().to_string() + &svec.collect();
+            match svec.next() {
+                None => String::new(),
+                Some(c) => c.to_ascii_uppercase().to_string(),
+            }
         })
         .collect();
+
     println!("{:?}", vs);
 }

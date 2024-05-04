@@ -182,3 +182,17 @@ pub fn capitalize_first_letter(vecStr: Vec<String>) -> Vec<String> {
 ```
 
 map メソッドでは遅延評価がされるまで要素にふれるまで実行されない
+
+# collect の型推論
+
+`collect::<Vec<_>>()`のように collect は絶対型推論が必要
+
+なぜなら collect は最終的な型の形がそこの推論に依存するので、つまり願えばなんでもできる魔法のメソッド
+
+# hashMap もヤバくね？
+
+上に関連してなんですが HashMap::new()も宣言した型に明示的に型をつけないといけない。普通に new()の引数で関数わたしたり HashMap::<i32,i32>new()みたいな感じじゃないんだ…
+
+```
+
+```
