@@ -135,3 +135,11 @@ https://claude.ai/chat/0778e660-3c79-46fb-b1a4-b4757c03a484
 # file::open
 
 src/以下ではなくプロジェクト root をみる
+
+# rust の test
+
+`#[cfg(test)]`をつけるとコンパイル時に無視される。
+rust test を実行したときしか`#[cfg(test)]`の内容はコンパイルされない
+use super::\*;で親モジュールの関数を使える。test の場合は mod tests で{}スコープを分けるから親の関数を use super::\*;で使うことができる
+
+test は pub を付ける必要がない。
