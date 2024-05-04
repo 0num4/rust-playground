@@ -1,0 +1,82 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'Q_20240502_claude3_karano_mondai'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=Q_20240502_claude3_karano_mondai",
+                    "--package=Q_20240502_claude3_karano_mondai"
+                ],
+                "filter": {
+                    "name": "Q_20240502_claude3_karano_mondai",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'Q_20240502_claude3_karano_mondai'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=Q_20240502_claude3_karano_mondai",
+                    "--package=Q_20240502_claude3_karano_mondai"
+                ],
+                "filter": {
+                    "name": "Q_20240502_claude3_karano_mondai",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'rust-playground'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=rust-playground",
+                    "--package=rust-playground"
+                ],
+                "filter": {
+                    "name": "rust-playground",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'rust-playground'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=rust-playground",
+                    "--package=rust-playground"
+                ],
+                "filter": {
+                    "name": "rust-playground",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

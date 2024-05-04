@@ -143,3 +143,42 @@ rust test を実行したときしか`#[cfg(test)]`の内容はコンパイル�
 use super::\*;で親モジュールの関数を使える。test の場合は mod tests で{}スコープを分けるから親の関数を use super::\*;で使うことができる
 
 test は pub を付ける必要がない。
+
+# map と collect の謎
+
+これは map の中が実行されない:thinking_face:
+
+```
+pub fn capitalize_first_letter(vecStr: Vec<String>) -> Vec<String> {
+    let vecStr2 = vec!["a", "ff", "dddd"];
+    let m = vecStr.iter().map(|x| {
+        println!("aaa {:?}", x);
+        x.to_string();
+    });
+    print!("{:?}", m);
+
+    return Vec::new();
+}
+
+```
+
+collect()を後ろにつけてこうすると map の中が実行された
+
+```
+pub fn capitalize_first_letter(vecStr: Vec<String>) -> Vec<String> {
+    let vecStr2 = vec!["a", "ff", "dddd"];
+    let m: Vec<_> = vecStr
+        .iter()
+        .map(|x| {
+            println!("aaa {:?}", x);
+            x.to_string();
+        })
+        .collect();
+    print!("{:?}", m);
+
+    return Vec::new();
+}
+
+```
+
+map メソッドでは遅延評価がされるまで要素にふれるまで実行されない
