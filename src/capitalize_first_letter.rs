@@ -1,7 +1,7 @@
 use std::str::Chars;
 
-pub fn capitalize_first_letter(vecStr: Vec<String>) {
-    let vs: Vec<String> = vecStr
+pub fn capitalize_first_letter(vec_str: Vec<String>) {
+    let vs: Vec<String> = vec_str
         .iter()
         .map(|s| {
             let mut svec: Chars = s.chars();
