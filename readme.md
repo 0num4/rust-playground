@@ -1,5 +1,7 @@
 # rust-playground
 
+[![rust-lint](https://github.com/0num4/rust-playground/actions/workflows/lint.yml/badge.svg)](https://github.com/0num4/rust-playground/actions/workflows/lint.yml)
+
 ```
 cuargo run
 ```
