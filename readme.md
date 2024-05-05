@@ -206,3 +206,10 @@ char型は、コピー可能な型（Copy traitを実装している型）の一
 ```
 
 大体理解したので一旦終わり！
+
+# rust doc
+
+rust-analyzer 本当にキモくて///にすると doc として認識してくれる。
+cargo doc でドキュメントを生成できる
+生成されたものは target/doc 以下に html として生成される。
+![alt text](image-1.png)

@@ -52,6 +52,13 @@ fn q1_4_esult(i: i32) -> Result<String, Error> {
     return Ok(i.to_string());
 }
 
+/// ファイルを開いてその中の内容を読み取る
+/// # Examples
+/// ```
+/// let m = q1_4_fileopen("memo.md")
+/// assert_eq!(m, "nya")
+/// ```
+
 fn q1_4_fileopen(path: &Path) -> Result<String, Error> {
     // let dis = path.display();
     let mut a = File::open(path)?;
