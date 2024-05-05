@@ -9,17 +9,17 @@ pub fn q1_1() {
     v.push(4);
     print!("{:?}", v);
     // print!("{}", v[5]) 存在しない配列にアクセスすると何も表示されなかった
-    let mut strVec = vec!["hello", "world"];
-    print!("{:?}", strVec);
-    strVec.push("nya");
-    print!("{:?}", strVec);
-    strVec.pop(); // 末尾から消す
-    print!("{:?}", strVec);
-    strVec.push("nya");
-    strVec.push("nya");
-    strVec.remove(1);
-    print!("{:?}", strVec);
-    for i in strVec {
+    let mut str_vec = vec!["hello", "world"];
+    print!("{:?}", str_vec);
+    str_vec.push("nya");
+    print!("{:?}", str_vec);
+    str_vec.pop(); // 末尾から消す
+    print!("{:?}", str_vec);
+    str_vec.push("nya");
+    str_vec.push("nya");
+    str_vec.remove(1);
+    print!("{:?}", str_vec);
+    for i in str_vec {
         println!("{:?}", i);
     }
 }
