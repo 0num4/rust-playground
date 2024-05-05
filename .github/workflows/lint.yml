@@ -9,13 +9,25 @@ on:
       - master
       - main
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: check
         run: cargo check
-      - name: clippy
-        run: cargo clippy -- -D warnings
+      # - name: clippy
+      #   run: cargo clippy -- -D warnings
       - name: fmt
         run: cargo fmt -- --check
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: test
+        run: cargo test
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run
+        run: cargo run

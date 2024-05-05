@@ -25,7 +25,7 @@ pub fn q1_1() {
 }
 
 fn q1_3_option() -> Option<i32> {
-    let v = vec![1, 2, 3, 4, 56];
+    let v = [1, 2, 3, 4, 56];
     let findid = 56;
     let ans = v.get(findid).copied();
     return ans;
@@ -54,7 +54,7 @@ fn q1_4_esult(i: i32) -> Result<String, Error> {
 
 fn q1_4_fileopen(path: &Path) -> Result<String, Error> {
     // let dis = path.display();
-    let mut a = File::open(&path)?;
+    let mut a = File::open(path)?;
     let mut buf = String::new();
     a.read_to_string(&mut buf)?;
     Ok(buf)

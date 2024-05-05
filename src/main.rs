@@ -12,7 +12,7 @@ fn main() {
     q1::main();
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];
     println!("capitalize_first_letter");
-    let _ = capitalize_first_letter::capitalize_first_letter(l);
+    capitalize_first_letter::capitalize_first_letter(l);
     // println!("{:?}", res);
     // tokiotest::server();
     // hypertest::main();
