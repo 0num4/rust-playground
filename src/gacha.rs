@@ -1,6 +1,6 @@
 pub fn gacha() {
     println!("ガチャガチャ");
-    kakuritu(20.0); 
+    kakuritu(20.0);
     // pickup_in_atari();
     nya();
 }
@@ -26,12 +26,16 @@ pub fn kakuritu(count: f64) {
 
 pub fn nya() {
     // ガチャの確率（5%）
-    let gacha_probability: f64   = 0.05;
+    let gacha_probability: f64 = 0.05;
     // ガチャを何回引くか（10回）
-    let num_attempts:   i32 = 10;
+    let num_attempts: i32 = 10;
 
     // 少なくとも1回当たる確率を計算
     let at_least_one_win_probability = 1.0 - gacha_probability.powi(num_attempts);
 
-    println!("5%のガチャを{}連引いて、少なくとも1回当たる確率は {:.2}% です。", num_attempts, at_least_one_win_probability * 100.0);
+    println!(
+        "5%のガチャを{}連引いて、少なくとも1回当たる確率は {:.2}% です。",
+        num_attempts,
+        at_least_one_win_probability * 100.0
+    );
 }
