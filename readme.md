@@ -252,6 +252,8 @@ lock()を取ってからもう一回 lock()を取ろうとするとずっと止�
 これは OK
 ![alt text](image-3.png)
 
+MutexGuard 型が出てきたら基本的に\*を付けて参照先を見れば ok
+
 # threads について
 
 thread::spawn で threads をつくる。
@@ -276,3 +278,10 @@ pub fn q4_pre() {
 ```
 
 tokio::spawn なら join()は必要なくて、t.await で良い
+
+# channel と mpsc について
+
+# drop()
+
+プログラムが終了すると勝手に呼ばれる。
+明示的に呼ぶこともできる。
