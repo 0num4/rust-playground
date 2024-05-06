@@ -285,3 +285,24 @@ tokio::spawn なら join()は必要なくて、t.await で良い
 
 プログラムが終了すると勝手に呼ばれる。
 明示的に呼ぶこともできる。
+
+# error
+
+```
+use of moved value: `shared_int`
+value moved into closure here, in previous iteration of looprustcClick for full compiler diagnostic
+q4.rs(37, 41): use occurs due to use in closure
+q4.rs(33, 9): move occurs because `shared_int` has type `Arc<std::sync::Mutex<i32>>`, which does not implement the `Copy` trait
+```
+
+pub をつけるかどうかで挙動が変わる！！
+
+```
+pub fn q4_pre() {
+```
+
+こうしたらエラーが出なくなった
+
+```
+fn q4_pre() {
+```
