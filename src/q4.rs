@@ -19,8 +19,10 @@ pub fn main() {
     let mut arcMutexTestInner = arcMutexTest.lock().unwrap();
     println!("{}", arcTest);
     println!("{}", arcMutexTest.lock().unwrap());
-    // arcTest = 444;
+    // *arcTest = 444;
     *arcMutexTestInner = 444;
     println!("{}", arcTest);
     println!("{}", arcMutexTestInner);
 }
+
+pub fn q4_pre() {}
