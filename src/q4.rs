@@ -15,7 +15,12 @@ pub fn main() {
     //     data:
     // };
     let mut arcTest = Arc::new(42);
-    let mut arcMutexTest = Arc::new(Mutex::new(43));
+    let arcMutexTest = Arc::new(Mutex::new(43));
+    let mut arcMutexTestInner = arcMutexTest.lock().unwrap();
     println!("{}", arcTest);
     println!("{}", arcMutexTest.lock().unwrap());
+    // arcTest = 444;
+    *arcMutexTestInner = 444;
+    println!("{}", arcTest);
+    println!("{}", arcMutexTestInner);
 }
