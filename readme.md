@@ -213,3 +213,15 @@ rust-analyzer 本当にキモくて///にすると doc として認識してく�
 cargo doc でドキュメントを生成できる
 生成されたものは target/doc 以下に html として生成される。
 ![alt text](image-1.png)
+
+# rust の Arc や Rc について
+
+https://qiita.com/qnighy/items/4bbbb20e71cf4ae527b9
+Arc は参照カウントを使ったスマートポインタであり、データや状態を共有できる
+Box の亜種っぽさを感じる。
+Arc::new(42)で作成できる。ただしこの状態だと参照を共有してるので書き込めなくて、
+
+# mutex について
+
+Mutex::new()は基本的に display メソッドを持たない
+lock()して unwrap()すると初めて中身が見える
