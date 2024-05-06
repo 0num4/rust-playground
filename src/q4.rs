@@ -28,12 +28,11 @@ pub fn main() {
     println!("{}", arcMutexTestInner);
 }
 
-#[tokio::main]
-pub async fn q4_pre() {
+pub fn q4_pre() {
     for i in 1..10 {
-        let t = tokio::spawn(async move {
+        let t = std::thread::spawn(|| {
             println!("5s待ちます");
-            tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
+            std::thread::sleep(std::time::Duration::from_secs(5));
             println!("5s待ちました");
         });
         // let t_res = t.await;
