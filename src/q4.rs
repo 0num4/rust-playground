@@ -36,7 +36,7 @@ pub async fn q4_pre() {
             tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
             println!("5s待ちました");
         });
-        let t_res = t.await;
-        println!("{:?}", t_res)
+        // let t_res = t.await;
+        // println!("{:?}", t_res)
     }
 }
