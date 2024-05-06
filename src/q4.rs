@@ -8,7 +8,10 @@
 //     }
 // }
 
-use std::sync::{Arc, Mutex};
+use std::{
+    sync::{Arc, Mutex},
+    thread,
+};
 
 pub fn main() {
     // let a = AsyncProcessor::<i32>{
@@ -25,4 +28,15 @@ pub fn main() {
     println!("{}", arcMutexTestInner);
 }
 
-pub fn q4_pre() {}
+#[tokio::main]
+pub async fn q4_pre() {
+    for i in 1..10 {
+        let t = tokio::spawn(async move {
+            println!("5s待ちます");
+            tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
+            println!("5s待ちました");
+        });
+        let t_res = t.await;
+        println!("{:?}", t_res)
+    }
+}

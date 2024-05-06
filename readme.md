@@ -251,3 +251,28 @@ lock()を取ってからもう一回 lock()を取ろうとするとずっと止�
 ![alt text](image-4.png)
 これは OK
 ![alt text](image-3.png)
+
+# threads について
+
+thread::spawn で threads をつくる。
+spawn の返り値は JoinHandle 型
+
+std::thread を async にすることは出来ないので、tokio::spawn を使う
+これはできない
+
+```
+pub fn q4_pre() {
+    for i in 1..10 {
+        let t = thread::spawn(|| {
+            println!("5s待ちます");
+            tokio::time::sleep(tokio::time::Duration::from_secs(5)).await?;
+            println!("5s待ちました");
+        });
+        let t_res = t.join().unwrap();
+        println!("{:?}", t_res)
+    }
+}
+
+```
+
+tokio::spawn なら join()は必要なくて、t.await で良い
