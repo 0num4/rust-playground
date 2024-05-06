@@ -9,9 +9,11 @@
 // }
 
 use std::{
-    collections::VecDeque,
+    collections::{HashMap, VecDeque},
+    fs::File,
+    io::{BufRead, BufReader, Read, Seek, SeekFrom},
     sync::{Arc, Mutex},
-    thread,
+    thread::{self, spawn},
 };
 
 pub fn main() {
@@ -27,7 +29,8 @@ pub fn main() {
     *arcMutexTestInner = 444;
     println!("{}", arcTest);
     println!("{}", arcMutexTestInner);
-    q4_pre();
+    // q4_pre();
+    q5_more_thread()
 }
 
 fn q4_pre() {
@@ -42,9 +45,9 @@ fn q4_pre() {
                 *locked_shared_int = *locked_shared_int + 1;
             }
             println!("locked_shared_int: {}", *locked_shared_int);
-            println!("5s待ちます");
-            std::thread::sleep(std::time::Duration::from_secs(5));
-            println!("5s待ちました");
+            // println!("5s待ちます");
+            // std::thread::sleep(std::time::Duration::from_secs(5));
+            // println!("5s待ちました");
         });
         thread_dequeue.push_back(t);
         // let t_res = t.await;
@@ -52,7 +55,35 @@ fn q4_pre() {
     }
 
     while thread_dequeue.len() == 0 {
-        let t = thread_dequeue.pop_back();
-        t.unwrap().join();
+        let t = thread_dequeue.pop_front();
+        let _ = t.unwrap().join();
+    }
+}
+
+// 問題3：マルチスレッドでのファイル読み込みと処理
+
+// 大きなテキストファイルを複数のスレッドで分割して読み込む。
+// 各スレッドは、割り当てられた部分のファイルを読み込み、単語の出現回数をカウントする。
+// 全てのスレッドが終了した後、単語の出現回数を集計し、上位10個の単語を出力する。
+// ヒント：std::fs::Fileとstd::io::BufReaderを使用してファイルを読み込む。Arc<Mutex<HashMap<String, usize>>>を使用して、単語の出現回数を安全に集計する。
+fn q5_more_thread() {
+    let mut str = String::new();
+    let mut countMap: Arc<Mutex<HashMap<String, i32>>> = Arc::new(Mutex::new(HashMap::new()));
+    let mut f = File::open("memo.md").unwrap(); // file::openはファイルハンドラだから100TB読むわけではない
+    let f_size = f.metadata().unwrap().len();
+    println!("f_size: {}", f_size);
+    for i in 0..5 {
+        let f = f.try_clone().unwrap();
+        let t = spawn(move || {
+            let mut reader = BufReader::new(f);
+            let mut b = String::new();
+            let seek_start = (f_size / 5) * i;
+            println!("{}個目のthreads。{} byte目から読み取ります", i, seek_start);
+            reader.seek(SeekFrom::Start(seek_start)).unwrap();
+            let l = reader.read_line(&mut b).unwrap();
+            println!("buffer; {}", b);
+            println!("stream_position; {}", reader.stream_position().unwrap());
+        });
+        t.join().unwrap();
     }
 }

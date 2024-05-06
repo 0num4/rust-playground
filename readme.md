@@ -295,14 +295,22 @@ q4.rs(37, 41): use occurs due to use in closure
 q4.rs(33, 9): move occurs because `shared_int` has type `Arc<std::sync::Mutex<i32>>`, which does not implement the `Copy` trait
 ```
 
-pub をつけるかどうかで挙動が変わる！！
+とりあえず色々悩まされたけど解決した、もう少し詳しくなったら書く
 
-```
-pub fn q4_pre() {
-```
+# File::read と BufReader::read の違い
 
-こうしたらエラーが出なくなった
+bufread のほうが早い、前者は 4byte ずつ読むので syscall を大量に呼ぶ
 
-```
-fn q4_pre() {
-```
+# seek
+
+BufReader に seek メソッドが生えている。
+
+# &mut の意味
+
+可変参照。
+通常の参照は参照先の値は変更できないが、&mut は変更できる
+可変参照の String と普通の string は違う
+
+# f.try_clone()
+
+File::try_clone()はファイル構造体のために作られた特別なあれ。
