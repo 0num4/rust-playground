@@ -4,6 +4,7 @@ mod hypertest;
 mod q1;
 mod q2;
 mod q3;
+mod q4;
 mod tokiotest;
 
 fn main() {
@@ -17,4 +18,5 @@ fn main() {
     // tokiotest::server();
     // hypertest::main();
     q3::main();
+    q4::main();
 }
