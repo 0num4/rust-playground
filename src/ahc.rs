@@ -63,7 +63,7 @@ impl Grid {
 }
 
 pub fn main() {
-    read_input();
+    // read_input();
     let mut g = Grid::new(50, 50);
     let init_x = rand::thread_rng().gen_range(0..50);
     let init_y = rand::thread_rng().gen_range(0..50);

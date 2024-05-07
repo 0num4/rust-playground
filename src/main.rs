@@ -7,6 +7,7 @@ mod ahc;
 mod capitalize_first_letter;
 mod gacha;
 mod hypertest;
+mod macro_study;
 mod q1;
 mod q2;
 mod q3;
@@ -19,6 +20,8 @@ fn main() {
     gacha::gacha();
     ahc::main();
     q1::main();
+    bar!(1 + 1);
+
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];
     println!("capitalize_first_letter");
     capitalize_first_letter::capitalize_first_letter(l);

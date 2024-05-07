@@ -358,3 +358,16 @@ fn p<T: Debug>(v: T){
 # rust のベクター
 
 vec はヒープ領域に確保される
+
+# macro
+
+macro_rules で実装できる。マッチ式っぽい
+
+```rust
+macro_rules! foo {
+    () => {};
+}
+
+```
+
+他のファイルで使うには#[macro_export]が必要
