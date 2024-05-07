@@ -91,11 +91,19 @@ pub fn main() {
     println!("q1_4_fileopen(); end");
     q1_4_match();
     println!("q1_4_match(); end");
-    err_handling()
+    match err_handling() {
+        Ok(_) => println!("err_handlingの処理は正常"),
+        Err(_) => println!("err_handlingを読んだ際にerrが発生しました!!"),
+    }
 }
 
-pub fn err_handling() {
+pub fn err_handling() -> Result<i32, i32> {
     let mut r = thread_rng(); //preudo RNG
     let r_num: i32 = r.gen();
     println!("random number is: {}", r_num);
+    if r_num > 0 {
+        Ok(r_num)
+    } else {
+        Err(r_num)
+    }
 }
