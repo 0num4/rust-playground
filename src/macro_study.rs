@@ -8,3 +8,10 @@ macro_rules! bar {
         println!("input macro: {:?}", $x);
     };
 }
+
+#[macro_export]
+macro_rules! input {
+    ($x:expr) => {
+        $x
+    };
+}
