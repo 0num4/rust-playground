@@ -4,7 +4,7 @@ use std::{
     path::Path,
 };
 
-use rand::random;
+use rand::{thread_rng, Rng};
 
 pub fn q1_1() {
     let mut v = vec![1; 4];
@@ -95,5 +95,7 @@ pub fn main() {
 }
 
 pub fn err_handling() {
-    let r = random();
+    let mut r = thread_rng(); //preudo RNG
+    let r_num: i32 = r.gen();
+    println!("random number is: {}", r_num);
 }

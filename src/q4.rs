@@ -69,7 +69,7 @@ fn q4_pre() {
 fn q5_more_thread() {
     let mut str = String::new();
     let mut countMap: Arc<Mutex<HashMap<String, i32>>> = Arc::new(Mutex::new(HashMap::new()));
-    let mut h = HashMap::new();
+    let mut h: HashMap<String, i32> = HashMap::new();
     // h.insert(k, v)
     let mut f = File::open("memo.md").unwrap(); // file::openはファイルハンドラだから100TB読むわけではない
     let f_size = f.metadata().unwrap().len();

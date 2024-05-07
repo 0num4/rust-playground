@@ -333,3 +333,6 @@ mutex は send や sync は実装していないので包む必要がある
 # rust で乱数生成
 
 random クレートを入れる必要がある
+https://sehermitage.web.fc2.com/devel/rust_rand.html
+thread_rng()で疑似乱数生成器を作って
+r.gen()で乱数を生成する
