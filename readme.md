@@ -336,3 +336,25 @@ random クレートを入れる必要がある
 https://sehermitage.web.fc2.com/devel/rust_rand.html
 thread_rng()で疑似乱数生成器を作って
 r.gen()で乱数を生成する
+
+# rust の print について
+
+https://chat.openai.com/share/3699e7f8-8f6c-46d3-8245-bdc4eca348b6
+"{}"が使えるのは**ディスプレイ trait を実装している型のみ**
+それ以外は"{:?}"を使う。"{:#?}"できれいに表示できる
+
+全ての型は debug trait を実装している
+
+# ジェネリクスの型みたいなやつ
+
+T は debugtrait を実装している必要がある Generic 型
+
+```rust
+fn p<T: Debug>(v: T){
+
+}
+```
+
+# rust のベクター
+
+vec はヒープ領域に確保される

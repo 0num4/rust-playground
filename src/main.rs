@@ -3,6 +3,7 @@ use std::{
     thread,
 };
 
+mod ahc;
 mod capitalize_first_letter;
 mod gacha;
 mod hypertest;
@@ -16,6 +17,7 @@ fn main() {
     println!("Hello, world!");
 
     gacha::gacha();
+    ahc::main();
     q1::main();
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];
     println!("capitalize_first_letter");
