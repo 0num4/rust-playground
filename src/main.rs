@@ -14,6 +14,7 @@ mod tokiotest;
 
 fn main() {
     println!("Hello, world!");
+
     gacha::gacha();
     q1::main();
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];

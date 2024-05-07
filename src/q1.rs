@@ -4,6 +4,8 @@ use std::{
     path::Path,
 };
 
+use rand::random;
+
 pub fn q1_1() {
     let mut v = vec![1; 4];
     v.push(4);
@@ -89,4 +91,9 @@ pub fn main() {
     println!("q1_4_fileopen(); end");
     q1_4_match();
     println!("q1_4_match(); end");
+    err_handling()
+}
+
+pub fn err_handling() {
+    let r = random();
 }
