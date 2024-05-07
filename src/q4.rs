@@ -69,12 +69,16 @@ fn q4_pre() {
 fn q5_more_thread() {
     let mut str = String::new();
     let mut countMap: Arc<Mutex<HashMap<String, i32>>> = Arc::new(Mutex::new(HashMap::new()));
+    let mut h = HashMap::new();
+    // h.insert(k, v)
     let mut f = File::open("memo.md").unwrap(); // file::openはファイルハンドラだから100TB読むわけではない
     let f_size = f.metadata().unwrap().len();
     println!("f_size: {}", f_size);
     for i in 0..5 {
+        let countMap = Arc::clone(&countMap);
         let f = f.try_clone().unwrap();
         let t = spawn(move || {
+            let mut locked_count_map = countMap.lock().unwrap();
             let mut reader = BufReader::new(f);
             let mut b = String::new();
             let seek_start = (f_size / 5) * i;
@@ -83,6 +87,11 @@ fn q5_more_thread() {
             let l = reader.read_line(&mut b).unwrap();
             println!("buffer; {}", b);
             println!("stream_position; {}", reader.stream_position().unwrap());
+            let words = b.split_ascii_whitespace();
+            for word in words {
+                let v = locked_count_map.get(word).unwrap();
+                let e = locked_count_map.entry("a".to_string()).or_insert(3);
+            }
         });
         t.join().unwrap();
     }

@@ -314,3 +314,18 @@ BufReader に seek メソッドが生えている。
 # f.try_clone()
 
 File::try_clone()はファイル構造体のために作られた特別なあれ。
+
+# HashMap の entory
+
+https://qiita.com/hystcs/items/75183bcf38bf95cc2ce0
+
+神の説明過ぎる
+![alt text](image-5.png)
+mutex は send や sync は実装していないので包む必要がある
+
+# スマートポインタについて
+
+ポインタにはいくつか種類がある
+
+- 参照・・・参照は&で表される。参照は所有権を持たず、所有権を借用するだけである。
+- スマートポインタ、スマポ
