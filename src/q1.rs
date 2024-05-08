@@ -142,6 +142,6 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 // fn filter_profiles<T: Filter>(u: Vec<UserProfile>, t: T) -> Vec<T> {
 //    t.apply();
 
-// fn t<T: Debug + 'a>(a: &'a str, b: &'a T) {
-//     ()
-// }
+fn t<'a, 'b: 'a, T: Debug>(a: &'a str, b: &'b T) {
+    ()
+}
