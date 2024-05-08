@@ -80,6 +80,8 @@ fn q1_4_match() {
 
 pub fn main() {
     q1_1();
+    let r = longest("first", "second");
+    println!("longest: {}", r);
     let ans = q1_3_option();
     // println!("ans is {}", ans.unwrap());
     q1_3_match();
@@ -109,26 +111,37 @@ pub fn err_handling() -> Result<i32, i32> {
     }
 }
 
-struct A<T: 'static> {
-    value: T,
-}
-impl Calc for A {
-    fn min_value() -> Result<i32, String> {}
-}
-
-struct UserProfile {
-    name: str,
-    age: i8,
+fn longest(a: &str, b: &str) -> &str {
+    if a.len() > b.len() {
+        return a;
+    } else {
+        return b;
+    }
 }
 
-trait Filter {
-    fn apply(&self) -> bool;
-}
+// struct A<T: 'static> {
+//     value: T,
+// }
+// impl Calc for A {
+//     fn min_value() -> Result<i32, String> {}
+// }
 
-impl Filter for UserProfile {
-    fn apply(&self) -> bool {}
-}
+// struct UserProfile {
+//     name: str,
+//     age: i8,
+// }
 
-fn filter_profiles<T: Filter>(u: Vec<UserProfile>) -> Vec<T> {
-    u.apply()
-}
+// trait Filter {
+//     fn apply(&self) -> bool;
+// }
+
+// impl Filter for UserProfile {
+//     fn apply(&self) -> bool {}
+// }
+
+// fn filter_profiles<T: Filter>(u: Vec<UserProfile>, t: T) -> Vec<T> {
+//    t.apply();
+
+// fn t<T: Debug + 'a>(a: &'a str, b: &'a T) {
+//     ()
+// }
