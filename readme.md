@@ -371,3 +371,13 @@ macro_rules! foo {
 ```
 
 他のファイルで使うには#[macro_export]が必要
+
+# String と&str と'static str の違い
+
+&str は一般的な文字列スライスで任意のライフタイムを持つ。参照が有効な限り続く。
+&'static str はプログラムが終了するまで有効
+
+# ライフタイムとライフタイム境界
+
+A<T: Debug>は trait 境界
+A<T: 'static>はライフタイム境界
