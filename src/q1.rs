@@ -1,4 +1,5 @@
 use std::{
+    fmt::Debug,
     fs::File,
     io::{Error, Read},
     path::Path,
@@ -106,4 +107,28 @@ pub fn err_handling() -> Result<i32, i32> {
     } else {
         Err(r_num)
     }
+}
+
+struct A<T: 'static> {
+    value: T,
+}
+impl Calc for A {
+    fn min_value() -> Result<i32, String> {}
+}
+
+struct UserProfile {
+    name: str,
+    age: i8,
+}
+
+trait Filter {
+    fn apply(&self) -> bool;
+}
+
+impl Filter for UserProfile {
+    fn apply(&self) -> bool {}
+}
+
+fn filter_profiles<T: Filter>(u: Vec<UserProfile>) -> Vec<T> {
+    u.apply()
 }
