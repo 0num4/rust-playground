@@ -13,6 +13,8 @@ mod q2;
 mod q3;
 mod q4;
 mod q5;
+// mod q6;
+mod q7;
 mod read_json;
 mod tokiotest;
 
@@ -21,8 +23,10 @@ fn main() {
 
     read_json::main();
     gacha::gacha();
-    ahc::main();
-    q1::main();
+    // ahc::main();
+    // q6::main();
+    q7::main();
+    // q1::main();
     bar!(1 + 1);
 
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];

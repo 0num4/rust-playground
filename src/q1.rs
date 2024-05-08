@@ -1,5 +1,5 @@
 use std::{
-    fmt::Debug,
+    fmt::{Debug, Display},
     fs::File,
     io::{Error, Read},
     path::Path,
@@ -126,22 +126,39 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 //     fn min_value() -> Result<i32, String> {}
 // }
 
-// struct UserProfile {
-//     name: str,
-//     age: i8,
-// }
+struct Product {
+    name: String,
+    price: f32,
+}
 
-// trait Filter {
-//     fn apply(&self) -> bool;
-// }
+trait PriceFilter {
+    fn apply(&self, p: &Product) -> bool;
+}
 
-// impl Filter for UserProfile {
-//     fn apply(&self) -> bool {}
-// }
+impl PriceFilter for Product {
+    fn apply(&self, p: &Product) -> bool {
+        if p.price > 100.0 {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
-// fn filter_profiles<T: Filter>(u: Vec<UserProfile>, t: T) -> Vec<T> {
-//    t.apply();
+fn filter_products<T: PriceFilter>(u: Vec<Product>, t: T) -> Vec<Product> {
+    let mut v: Vec<Product> = Vec::new();
+    for ui in u {
+        if t.apply(&ui) {
+            v.push(ui);
+        }
+    }
+    return v;
+}
+
+// 大分同じじゃないですか？applyとか同じじゃん。ほかも名前変えるだけで実装できますよね？もっと違う感じで。
 
 fn t<'a, 'b: 'a, T: Debug>(a: &'a str, b: &'b T) {
     ()
 }
+
+fn f<'a, T: Display>(x: &'a str, y: &'a T) {}

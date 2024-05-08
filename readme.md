@@ -404,3 +404,8 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &str {
 <'a, 'b: 'a>のように
 
 全ての変数にはライフタイム宣言が暗示的に隠れている。
+
+```
+cannot return value referencing local data `person.name`
+returns a value referencing data owned by the current function
+```
