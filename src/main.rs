@@ -18,6 +18,7 @@ mod tokiotest;
 fn main() {
     println!("Hello, world!");
 
+    read_json::main();
     gacha::gacha();
     ahc::main();
     q1::main();
