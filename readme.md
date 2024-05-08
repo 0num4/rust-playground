@@ -381,3 +381,19 @@ macro_rules! foo {
 
 A<T: Debug>は trait 境界
 A<T: 'static>はライフタイム境界
+
+```
+
+```
+
+```
+consider using the `'a` lifetime: `'a `rustcE0106
+
+fn longest<'a>(x: &'a str, y: &'a str) -> &str {
+    if x.len() > y.len() {
+        return x;
+    } else {
+        return y;
+    }
+}
+```

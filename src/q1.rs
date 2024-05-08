@@ -111,7 +111,7 @@ pub fn err_handling() -> Result<i32, i32> {
     }
 }
 
-fn longest(x: &str, y: &str) -> &str {
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         return x;
     } else {
