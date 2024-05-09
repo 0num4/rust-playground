@@ -31,8 +31,8 @@ fn main() {
     q8::main();
     // q1::main();
     bar!(1 + 1);
-    // macro_study::main();
-    new_person!("a".to_string(), 32);
+    macro_study::main();
+    // new_person!("a".to_string(), 32);
 
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];
     println!("capitalize_first_letter");

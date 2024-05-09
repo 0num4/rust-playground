@@ -374,6 +374,10 @@ macro_rules! foo {
 
 macro 内では return は使えない！！返り値とかは any になってるので自由
 
+```
+variable 'x' is still repeating at this depthrustcClick for full compiler diagnostic
+```
+
 # String と&str と'static str の違い
 
 &str は一般的な文字列スライスで任意のライフタイムを持つ。参照が有効な限り続く。
