@@ -15,6 +15,7 @@ mod q4;
 mod q5;
 // mod q6;
 mod abc086_b;
+mod abc352_a;
 mod q7;
 mod q8;
 mod read_json;
@@ -30,6 +31,7 @@ fn main() {
     // q6::main();
     q7::main();
     q8::main();
+    abc352_a::main();
     abc086_b::main();
     // q1::main();
     bar!(1 + 1);
