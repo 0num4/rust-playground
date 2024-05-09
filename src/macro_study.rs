@@ -9,9 +9,17 @@ macro_rules! bar {
     };
 }
 
-#[macro_export]
-macro_rules! input {
-    ($x:expr) => {
-        $x
+macro_rules! new_person {
+    ($x:expr, $y:expr) => {
+        Person { name: $x, age: $y }
     };
+}
+
+pub struct Person {
+    name: String,
+    age: i32,
+}
+
+pub fn main() {
+    new_person!("a".to_string(), 32);
 }

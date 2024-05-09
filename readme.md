@@ -372,6 +372,8 @@ macro_rules! foo {
 
 他のファイルで使うには#[macro_export]が必要
 
+macro 内では return は使えない！！返り値とかは any になってるので自由
+
 # String と&str と'static str の違い
 
 &str は一般的な文字列スライスで任意のライフタイムを持つ。参照が有効な限り続く。

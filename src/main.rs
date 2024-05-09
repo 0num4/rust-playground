@@ -15,9 +15,11 @@ mod q4;
 mod q5;
 // mod q6;
 mod q7;
+mod q8;
 mod read_json;
 mod tokiotest;
 
+#[macro_use(macro_study)]
 fn main() {
     println!("Hello, world!");
 
@@ -26,8 +28,11 @@ fn main() {
     // ahc::main();
     // q6::main();
     q7::main();
+    q8::main();
     // q1::main();
     bar!(1 + 1);
+    // macro_study::main();
+    new_person!("a".to_string(), 32);
 
     let l = vec!["as".to_string(), "bf".to_string(), "ccd".to_string()];
     println!("capitalize_first_letter");
