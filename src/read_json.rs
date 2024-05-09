@@ -17,9 +17,9 @@ struct Renovate {
 }
 
 pub fn main() {
-    let mut f = File::open("renovate.json").expect("ファイルが開けませんでした");
-    let json_value: Value = serde_json::from_reader(f).expect("jsonのパースに失敗しました");
-    println!("json value is: {:?}", json_value);
+    // let mut f = File::open("renovate.json").expect("ファイルが開けませんでした");
+    // let json_value: Value = serde_json::from_reader(f).expect("jsonのパースに失敗しました");
+    // println!("json value is: {:?}", json_value);
 
     // 構造体に代入
     // let mut json: Renovate = serde_json::from_reader(f).expect("jsonのパースに失敗しました");
