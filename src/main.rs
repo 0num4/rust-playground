@@ -15,6 +15,7 @@ mod q4;
 mod q5;
 // mod q6;
 mod abc086_b;
+mod abc351_a;
 mod abc352_a;
 mod q7;
 mod q8;
@@ -31,6 +32,7 @@ fn main() {
     // q6::main();
     q7::main();
     q8::main();
+    abc351_a::main();
     abc352_a::main();
     abc086_b::main();
     // q1::main();
