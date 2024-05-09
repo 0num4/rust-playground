@@ -1,3 +1,5 @@
+use proconio::input;
+
 macro_rules! foo {
     () => {};
 }
@@ -22,13 +24,40 @@ pub struct Person {
 
 macro_rules! test {
     ($($x:expr),*) => {
-        $(println!("$x {:?}", $x))*
+        $(println!("$x {:?}", $x);)*
     };
 }
 
+macro_rules! testmacro2 {
+    ($($x:expr),*) => {
+        $(println!("$x {:?}", $x);)*
+    };
+}
+
+// macro_rules! print_vec {
+//     ($x:expr) => {
+//         match $x {
+//             vec![$()] => {
+
+//             }
+//         }
+//     };
+// }
+
 pub fn main() {
+    input! {
+        (inp1, inp2): (i32,i32)
+    }
+    if (inp1 * inp2) % 2 == 1 {
+        println!("Odd")
+    } else {
+        println!("Even")
+    }
+    println!("{:?}", inp1);
+    println!("{:?}", inp2);
     new_person!("a".to_string(), 32);
-    test!(1 + 1);
+    test!(1 + 1, 3, 5, 3);
+    testmacro2!(1 + 1, 3, 5, 3);
 }
 
 // macro_rules! fibonacci {

@@ -378,6 +378,24 @@ macro 内では return は使えない！！返り値とかは any になって�
 variable 'x' is still repeating at this depthrustcClick for full compiler diagnostic
 ```
 
+```
+これで繰り返しを表現できる
+$($elem:expr),*
+```
+
+```
+macro_rules! is_vec_u64 {
+    ($expr:expr) => {
+        match $expr {
+            vec![$($elem:expr),*] => {
+                true $(&& { let _ = $elem as u64; true })*
+            }
+            _ => false,
+        }
+    };
+}
+```
+
 # String と&str と'static str の違い
 
 &str は一般的な文字列スライスで任意のライフタイムを持つ。参照が有効な限り続く。
