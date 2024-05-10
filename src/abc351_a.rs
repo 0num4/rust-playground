@@ -19,15 +19,20 @@ pub fn b() {
         n: i32,
         d: [[i32;2];n],
     }
-    let mut count = 0;
-    for di in d {
-        if di[0] == di[1] {
-            count += 1;
+    // let mut count = 0;
+    for (i, _) in d.iter().enumerate() {
+        if i > d.len() - 3 {
+            println!("No");
+            exit(0);
         }
-        if count > 2 {
+        if d[i][0] == d[i][1] && d[i + 1][0] == d[i + 1][1] && d[i + 2][0] == d[i + 2][1] {
             println!("Yes");
             exit(0);
         }
+        // if count > 2 {
+        //     println!("Yes");
+        //     exit(0);
+        // }
     }
     println!("No")
 }
