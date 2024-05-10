@@ -127,6 +127,8 @@ iter() の操作(検索)には find, filter,retain などがある。
 
 **vec をそのまま検索したいときは get メソッドが使える！！**
 
+iter()の内容を変えたいときは iter_mut()を使う
+
 # Result の基礎
 
 Ok(val)で Result が作れる
@@ -433,3 +435,11 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &str {
 cannot return value referencing local data `person.name`
 returns a value referencing data owned by the current function
 ```
+
+# split 構造体
+
+String に対して split すると Split 構造体が返ってくる
+
+# rust で datetime の parse
+
+chrono を使う

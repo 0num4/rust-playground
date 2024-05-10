@@ -18,10 +18,12 @@ mod abc076;
 mod abc086_b;
 mod abc351_a;
 mod abc352_a;
+mod atcode_beginers_selection;
 mod intro_heuristics;
 mod q7;
 mod q8;
 mod read_json;
+mod rust_study_0510;
 mod tokiotest;
 
 #[macro_use(macro_study)]
@@ -34,7 +36,10 @@ fn main() {
     // q6::main();
     q7::main();
     q8::main();
+    rust_study_0510::main();
+    atcode_beginers_selection::main();
     intro_heuristics::main();
+
     abc076::b();
     abc351_a::main();
     abc352_a::main();
