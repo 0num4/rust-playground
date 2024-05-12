@@ -1,7 +1,7 @@
 use chrono::prelude;
 use std::{default, fs::File, io::Read};
 
-pub fn main() {
+pub fn mainold() {
     errsample1();
     oksample1();
     //     let mut s: String = String::new();
@@ -22,6 +22,36 @@ pub fn main() {
     //     }
 }
 
+fn main() {
+    let strings = vec![
+        String::from("apple"),
+        String::from("banana"),
+        String::from("cherry"),
+        String::from("date"),
+    ];
+
+    let stats = process_strings(&strings);
+
+    println!("Even strings: {:?}", stats.even_strings);
+    println!("Odd strings: {:?}", stats.odd_strings);
+}
+fn process_strings(v: &Vec<String>) -> StringStats {
+    let mut odd: Vec<&str> = Vec::new();
+    let mut even: Vec<&str> = Vec::new();
+    for vin in v {
+        odd.push(vin.as_str());
+    }
+    return StringStats {
+        odd_strings: odd,
+        even_strings: even,
+    };
+}
+
+struct StringStats<'a> {
+    odd_strings: Vec<&'a str>,
+    even_strings: Vec<&'a str>,
+}
+
 // #[cfg(test)]
 // {
 //     use super::*;
@@ -32,9 +62,14 @@ pub fn main() {
 
 pub fn errsample1() {
     // 参照エラーになるサンプル
-    let x = String::new();
-    let y = x;
+    let x: Box<i32> = Box::new(5);
+    // let y: Box<i32> = x;
+    processvec(&x);
     println!("x is {:?}", x);
+}
+
+fn processvec(x: &Box<i32>) {
+    println!("Destroying box that contains {}", x);
 }
 
 pub fn oksample1() {

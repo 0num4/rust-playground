@@ -443,3 +443,46 @@ String に対して split すると Split 構造体が返ってくる
 # rust で datetime の parse
 
 chrono を使う
+
+# string とプリミティブ型
+
+前者と後者でエラーでるの違うの面白い。vec とかもヒープと乗るのでエラーが出る
+ヒープに乗る: String, Vec, Box, Rc, Arc
+
+```rust
+pub fn errsample1() {
+    // 参照エラーになるサンプル
+    let x = String::new();
+    let y = x;
+    println!("x is {:?}", x);
+}
+
+pub fn oksample1() {
+    // これは変数がスタック上に乗ってるのでok
+    let x = 5;
+    let y = x;
+    println!("x is {:?}", x);
+}
+```
+
+````rust
+pub fn errsample1() {
+    // 参照エラーになるサンプル
+    let x: Vec<i32> = Vec::new();
+    // let y = x;processvec
+    processvec(x);
+    println!("x is {:?}", x);
+}
+
+fn processvec(x: Vec<i32>) -> Vec<i32> {
+    return x;
+}```
+これも同じように
+````
+
+borrow of moved value: `x`
+value borrowed here after move
+
+```のエラーが出る
+
+```

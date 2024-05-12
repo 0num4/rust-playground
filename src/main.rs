@@ -18,6 +18,7 @@ mod abc076;
 mod abc086_b;
 mod abc351_a;
 mod abc352_a;
+mod abc353;
 mod atcode_beginers_selection;
 mod intro_heuristics;
 mod q7;
@@ -29,14 +30,14 @@ mod tokiotest;
 #[macro_use(macro_study)]
 fn main() {
     println!("Hello, world!");
-
+    abc353::main();
     // read_json::main();
     gacha::gacha();
     // ahc::main();
     // q6::main();
     q7::main();
     q8::main();
-    rust_study_0510::main();
+    // rust_study_0510::main();
     atcode_beginers_selection::main();
     intro_heuristics::main();
 
