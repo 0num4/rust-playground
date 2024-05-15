@@ -1,8 +1,3 @@
-use std::{
-    sync::{Arc, Mutex},
-    thread,
-};
-
 mod ahc;
 mod capitalize_first_letter;
 mod gacha;
@@ -27,7 +22,6 @@ mod read_json;
 mod rust_study_0510;
 mod tokiotest;
 
-#[macro_use(macro_study)]
 fn main() {
     println!("Hello, world!");
     abc353::main();
