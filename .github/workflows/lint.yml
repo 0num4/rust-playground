@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: build
+        run: cargo build
       - name: check
         run: cargo check
       # - name: clippy
