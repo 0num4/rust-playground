@@ -539,3 +539,14 @@ logout
 
 diesel migration generate をすると up.sql と down.sql が出来る。
 sql の中身は自分で書かないといけないのかぁ～
+
+```
+psql -h localhost -U username -d diesel_demo
+INSERT INTO posts (title, body, published) VALUES ('Learning Rust', 'Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.', true);
+INSERT INTO posts (title, body, published) VALUES ('Building a Web App', 'Building a web application with Rust and Actix-web can be both fun and challenging. Lets dive into the world of web development with Rust!', false);
+INSERT INTO posts (title, body, published) VALUES ('Adventures in Embedded Systems', 'Programming embedded systems with Rust allows for high performance and safety. Explore how Rust can be used in microcontroller programming.', true);
+INSERT INTO posts (title, body, published) VALUES ('Creative Coding', 'Creative coding is all about experimenting and having fun with code. Rusts performance and safety make it a great choice for creative projects.', false);
+INSERT INTO posts (title, body, published) VALUES ('Concurrency in Rust', 'Rusts ownership model ensures memory safety and concurrency without data races. Learn how to write concurrent programs in Rust.', true);
+SELECT * FROM posts;
+
+```
