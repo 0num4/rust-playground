@@ -24,18 +24,23 @@ mod rust_study_0510;
 mod tokiotest;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
-use dotenvy::dotenv;
-use std::env;
-pub mod models;
-pub mod schema;
-pub fn establish_connection() -> PgConnection {
-    dotenv().ok();
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    return PgConnection::establish(&database_url)
-        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url));
-}
+use models::Post;
+use rust_playground::*;
 
 fn main() {
+    use self::schema::posts::dsl::*;
+    let connection = &mut establish_connection();
+    let res = posts
+        .filter(published.eq(true))
+        .limit(5)
+        .select(Post::as_select())
+        .load(connection)
+        .expect("Error loading posts");
+    for post in res {
+        println!("{}", post.title);
+        println!("-----------\n");
+        println!("{}", post.body);
+    }
     // dieselsample::main();
     println!("Hello, world!");
     abc353::main();
