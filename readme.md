@@ -536,3 +536,6 @@ postgres@DESKTOP-2TQ96U5:~$ exit
 logout
 
 ```
+
+diesel migration generate をすると up.sql と down.sql が出来る。
+sql の中身は自分で書かないといけないのかぁ～
