@@ -493,6 +493,7 @@ value borrowed here after move
 sudo apt install mysql-server #8系が入る
 sudo apt install mysql-client
 sudo apt install libmysqlclient-dev #これが8系対応なのか不明だが
+sudo apt-get install postgresql
 sudo apt-get install libpq-dev
 cargo install diesel_cli
 ```
@@ -500,3 +501,38 @@ cargo install diesel_cli
 diesel setup を実行すると
 diesel.toml が出来る。
 また、migrations というフォルダもできる
+
+postgres のセットアップをする必要がある。
+.env に DATABASE_URL=postgres://username:password@localhost/diesel_demo を設定する。
+
+```
+user: root …/Owner/work/private/test/rust-playground on  master [?] is 📦 v0.1.0 via 🦀 v1.79.0
+❯ sudo -i -u postgres
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This message is shown once a day. To disable it please create the
+/var/lib/postgresql/.hushlogin file.
+postgres@DESKTOP-2TQ96U5:~$ psql
+psql (14.12 (Ubuntu 14.12-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# CREATE USER username WITH PASSWORD 'password';
+CREATE ROLE
+postgres=# CREATE DATABASE diesel_demo;
+CREATE DATABASE
+postgres=# GRANT ALL PRIVILEGES ON DATABASE diesel_demo TO username;
+GRANT
+postgres=# exit
+postgres@DESKTOP-2TQ96U5:~$ exit
+logout
+
+```
