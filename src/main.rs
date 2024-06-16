@@ -15,14 +15,28 @@ mod abc351_a;
 mod abc352_a;
 mod abc353;
 mod atcode_beginers_selection;
+mod dieselsample;
 mod intro_heuristics;
 mod q7;
 mod q8;
 mod read_json;
 mod rust_study_0510;
 mod tokiotest;
+use diesel::pg::PgConnection;
+use diesel::prelude::*;
+use dotenvy::dotenv;
+use std::env;
+pub mod models;
+pub mod schema;
+pub fn establish_connection() -> PgConnection {
+    dotenv().ok();
+    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+    return PgConnection::establish(&database_url)
+        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url));
+}
 
 fn main() {
+    // dieselsample::main();
     println!("Hello, world!");
     abc353::main();
     // read_json::main();
