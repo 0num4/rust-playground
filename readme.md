@@ -550,3 +550,8 @@ INSERT INTO posts (title, body, published) VALUES ('Concurrency in Rust', 'Rusts
 SELECT * FROM posts;
 
 ```
+
+# rdsについて
+aws modify-db-clusterとaws modify-db-instanceがある。
+modify-db-instanceでclusterを特定してmodify-db-clusterでpwを変更する 
+# put
