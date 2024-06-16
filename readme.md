@@ -486,3 +486,17 @@ value borrowed here after move
 ```のエラーが出る
 
 ```
+
+# diesel_cli を wsl に入れる
+
+```
+sudo apt install mysql-server #8系が入る
+sudo apt install mysql-client
+sudo apt install libmysqlclient-dev #これが8系対応なのか不明だが
+sudo apt-get install libpq-dev
+cargo install diesel_cli
+```
+
+diesel setup を実行すると
+diesel.toml が出来る。
+また、migrations というフォルダもできる
