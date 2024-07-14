@@ -26,8 +26,10 @@ use diesel::pg::PgConnection;
 use diesel::prelude::*;
 use models::Post;
 use rust_playground::*;
+mod abc362;
 
 fn main() {
+    abc362::main();
     use self::schema::posts::dsl::*;
     let connection = &mut establish_connection();
     let res = posts
