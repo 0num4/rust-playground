@@ -551,7 +551,61 @@ SELECT * FROM posts;
 
 ```
 
-# rdsについて
-aws modify-db-clusterとaws modify-db-instanceがある。
-modify-db-instanceでclusterを特定してmodify-db-clusterでpwを変更する 
+# rds について
+
+aws modify-db-cluster と aws modify-db-instance がある。
+modify-db-instance で cluster を特定して modify-db-cluster で pw を変更する
+
 # put
+
+# rust のバージョンのアップデート
+
+```
+user: root …/Owner/work/private/test/rust-playground on  main:master [!] is 📦 v0.1.0 via 🦀 v1.79.0
+❯ rustup update stable
+info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+759.8 KiB / 759.8 KiB (100 %) 367.4 KiB/s in  1s ETA:  0s
+info: latest update on 2024-07-25, rust version 1.80.0 (051478957 2024-07-21)
+info: downloading component 'rust-src'
+  2.7 MiB /   2.7 MiB (100 %) 589.6 KiB/s in  3s ETA:  0s
+info: downloading component 'rust-analysis'
+info: downloading component 'rust-std' for 'wasm32-unknown-unknown'
+ 18.1 MiB /  18.1 MiB (100 %)   2.8 MiB/s in  6s ETA:  0s
+info: downloading component 'cargo'
+  8.2 MiB /   8.2 MiB (100 %)   4.4 MiB/s in  1s ETA:  0s
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+ 15.8 MiB /  15.8 MiB (100 %)   5.1 MiB/s in  3s ETA:  0s
+info: downloading component 'rust-std'
+ 24.4 MiB /  24.4 MiB (100 %)   5.7 MiB/s in  3s ETA:  0s
+info: downloading component 'rustc'
+ 65.0 MiB /  65.0 MiB (100 %)  10.1 MiB/s in  6s ETA:  0s
+info: downloading component 'rustfmt'
+info: removing previous version of component 'rust-src'
+info: removing previous version of component 'rust-analysis'
+info: removing previous version of component 'rust-std' for 'wasm32-unknown-unknown'
+info: removing previous version of component 'cargo'
+info: removing previous version of component 'clippy'
+info: removing previous version of component 'rust-docs'
+info: removing previous version of component 'rust-std'
+info: removing previous version of component 'rustc'
+info: removing previous version of component 'rustfmt'
+info: installing component 'rust-src'
+info: installing component 'rust-analysis'
+info: installing component 'rust-std' for 'wasm32-unknown-unknown'
+ 18.1 MiB /  18.1 MiB (100 %)  16.1 MiB/s in  1s ETA:  0s
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+ 15.8 MiB /  15.8 MiB (100 %)   5.9 MiB/s in  1s ETA:  0s
+info: installing component 'rust-std'
+ 24.4 MiB /  24.4 MiB (100 %)  16.2 MiB/s in  1s ETA:  0s
+info: installing component 'rustc'
+ 65.0 MiB /  65.0 MiB (100 %)  15.8 MiB/s in  4s ETA:  0s
+info: installing component 'rustfmt'
+
+  stable-x86_64-unknown-linux-gnu updated - rustc 1.80.0 (051478957 2024-07-21) (from rustc 1.79.0 (129f3b996 2024-06-10))
+
+info: checking for self-update
+
+```
