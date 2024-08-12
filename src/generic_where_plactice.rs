@@ -1,8 +1,13 @@
 pub fn main() {
-    let s = genericsample(5);
+    let n = N { s: 4 };
+    let s = genericsample(n);
     println!("{:?}", s)
 }
 
-fn genericsample<T>(argx: T) -> i32 {
-    return 3;
+struct N {
+    s: i32,
+}
+
+fn genericsample(argx: N) -> i32 {
+    return argx.s;
 }
