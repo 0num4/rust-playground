@@ -44,13 +44,26 @@
 // pub fn main() {
 //     print_area();
 // }
-
+trait Perimeter {
+    fn perimeter(&self) -> i32;
+}
 struct Rectangle {
     width: i32,
     height: i32,
 }
 
+impl Perimeter for Rectangle {
+    // これはできない。Perimeterにはperimeterメソッドしか許容してないので。
+    // fn size(&self) -> i32 {
+    //     self.width * self.height
+    // }
+    fn perimeter(&self) -> i32 {
+        return self.width * self.height;
+    }
+}
+
 impl Rectangle {
+    //↑をやりたい場合はこうやって分割する。そうすると下のmainの中で認識できる。
     fn size(&self) -> i32 {
         self.width * self.height
     }
