@@ -382,6 +382,27 @@ fn p<T: Debug>(v: T){
 }
 ```
 
+ジェネリクスは関数にも struct にも impl にも trait にもつけることができる。
+
+```
+trait SS<T> {
+    fn ss(&self) -> i32;
+}
+struct N<T> {
+    s: T,
+}
+
+impl<T> SS<T> for N<T> {
+    fn ss(&self) -> i32 {
+        return self.s * self.s;
+    }
+}
+
+fn genericsample<T, X: SS<T>>(argx: X) -> i32 {
+    return argx.ss();
+}
+```
+
 # rust のベクター
 
 vec はヒープ領域に確保される
