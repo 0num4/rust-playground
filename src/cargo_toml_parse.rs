@@ -26,7 +26,7 @@ struct Cargo {
 }
 
 pub fn main() {
-    let cargotomlstring = fs::read_to_string("../Cargo.toml").unwrap();
+    let cargotomlstring = fs::read_to_string("Cargo.toml").unwrap();
     let cargo_toml: Cargo = toml::from_str(&cargotomlstring).unwrap();
-    println!("{:?}", cargo_toml.package.name);
+    println!("cargo_toml.package.name {:?}", cargo_toml.package.name);
 }

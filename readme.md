@@ -302,6 +302,8 @@ pub fn q4_pre() {
 
 ```
 
+unwrap()は失敗すると panic を起こす。代表的なのが fs::read_to_string()の no suchfile
+
 tokio::spawn なら join()は必要なくて、t.await で良い
 
 # channel と mpsc について
