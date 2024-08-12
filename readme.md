@@ -2,6 +2,8 @@
 
 [![rust-lint](https://github.com/0num4/rust-playground/actions/workflows/lint.yml/badge.svg)](https://github.com/0num4/rust-playground/actions/workflows/lint.yml)
 
+**ここにおいてあるコードは職人がすべて温かみを持って手作業で書いています。（勉強のため**
+
 ```
 cargo run
 ```
