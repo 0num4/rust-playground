@@ -4,7 +4,7 @@ use serde::Deserialize;
 use toml;
 
 // TOMLの場合セクションごとにstructを作ってstructをstructで組み合わせる
-#[derive(Deserialize)]
+#[derive(Debug, Deserialize)]
 struct Package {
     name: String,
     version: String,
@@ -13,10 +13,20 @@ struct Package {
     description: String,
 }
 
-#[derive(Deserialize)]
-struct Dependency {
-    version: String,
-    features: Option<Vec<String>>,
+// #[derive(Deserialize)]
+// struct Dependency {
+//     version: String,
+//     features: Option<Vec<String>>,
+// }
+
+#[derive(Debug, Deserialize)]
+#[serde(untagged)]
+enum Dependency {
+    Simple(String),
+    Detailed {
+        version: String,
+        features: Option<Vec<String>>,
+    },
 }
 
 #[derive(Deserialize)]
@@ -31,7 +41,7 @@ pub fn main() {
     println!("cargo_toml.package.name {:?}", cargo_toml.package.name);
     println!(
         "diesel version {:?}",
-        cargo_toml.dependencies.get("diesel").unwrap().version
+        cargo_toml.dependencies.get("diesel").unwrap()
     );
 }
 

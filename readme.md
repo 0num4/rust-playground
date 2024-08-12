@@ -647,3 +647,9 @@ struct A{}で定義して impl A{}でメソッドを実装すると let a=A{};a.
 - struct には struct を入れ込める。
   - struct に struct を入れ込む代わりに struct に enum も入れ込める
 - hashmap で同じ形式の繰り返しを表現できる。普通の struct はセクションの中身をすべて書き出す感じ
+
+## enum について
+
+rust の enum は奥が深い
+普通のリテラルと数値を紐づけるだけではなく、enum に struct を入れ込んだりできる
+https://vscode.dev/github/0num4/cargo-workspace-test/blob/feat/chapter5_is_too_hard/add-one/src/lib.rs#L1
