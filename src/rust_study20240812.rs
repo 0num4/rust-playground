@@ -131,4 +131,9 @@ pub fn q2() {
     let boxedsq = Box::new(sq);
     v.push(boxedc);
     v.push(boxedsq);
+    let mut aa: f32 = 0.0;
+    for s in v {
+        aa += s.area()
+    }
+    println!("{:?}", aa);
 }
