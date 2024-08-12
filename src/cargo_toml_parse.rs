@@ -1,4 +1,4 @@
-use std::fs;
+use std::{collections::HashMap, fs};
 
 use serde::Deserialize;
 use toml;
@@ -14,7 +14,7 @@ struct Package {
 }
 
 #[derive(Deserialize)]
-struct Dependencies {
+struct Dependency {
     version: String,
     features: Option<Vec<String>>,
 }
@@ -22,13 +22,17 @@ struct Dependencies {
 #[derive(Deserialize)]
 struct Cargo {
     package: Package,
-    // dependencies: Dependencies,
+    dependencies: HashMap<String, Dependency>,
 }
 
 pub fn main() {
     let cargotomlstring = fs::read_to_string("Cargo.toml").unwrap();
     let cargo_toml: Cargo = toml::from_str(&cargotomlstring).unwrap();
     println!("cargo_toml.package.name {:?}", cargo_toml.package.name);
+    println!(
+        "diesel version {:?}",
+        cargo_toml.dependencies.get("diesel").unwrap().version
+    );
 }
 
 // ```

@@ -640,3 +640,10 @@ info: checking for self-update
 **struct には実装も実装できる**
 struct A{}で定義して impl A{}でメソッドを実装すると let a=A{};a.a()で呼び出せる！
 実装するメソッドを制限したい場合は trait が使える！trait を使うといろんな struct に共通の振る舞いを矯正できる！
+
+# Cargo.toml のパース
+
+- toml の parse には toml と serde の deserialize を使う
+- struct には struct を入れ込める。
+  - struct に struct を入れ込む代わりに struct に enum も入れ込める
+- hashmap で同じ形式の繰り返しを表現できる。普通の struct はセクションの中身をすべて書き出す感じ
