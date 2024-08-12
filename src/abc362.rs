@@ -4,7 +4,7 @@ pub fn main() {
     // a();
     // println!("nyaaa");
     // b();
-    c();
+    // c();
 }
 
 pub fn a() {
@@ -23,12 +23,12 @@ pub fn a() {
 
 pub fn b() {}
 
-pub fn c() {
-    // (L1​,R1​),(L2​,R2​),…,(LN​,RN​)
-    input! {
-        n: usize,
-        lr: [[(usize, usize);n]usize]
-    }
+// pub fn c() {
+//     // (L1​,R1​),(L2​,R2​),…,(LN​,RN​)
+//     input! {
+//         n: usize,
+//         lr: [[(usize, usize);n]usize]
+//     }
 
-    println!("{}", n);
-}
+//     println!("{}", n);
+// }
