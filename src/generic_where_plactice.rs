@@ -3,17 +3,19 @@ pub fn main() {
     let s = genericsample(n);
     println!("{:?}", s)
 }
-
+trait SS {
+    fn ss(&self) -> i32;
+}
 struct N {
     s: i32,
 }
 
-impl N {
-    pub fn ss(&self) -> i32 {
+impl SS for N {
+    fn ss(&self) -> i32 {
         return self.s * self.s;
     }
 }
 
-fn genericsample(argx: N) -> i32 {
+fn genericsample<T: SS>(argx: T) -> i32 {
     return argx.ss();
 }
