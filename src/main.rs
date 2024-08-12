@@ -28,11 +28,13 @@ use models::Post;
 use rust_playground::*;
 mod abc362;
 mod cargo_toml_parse;
+mod generic_where_plactice;
 mod rust_study20240812;
 mod rust_study20240812_anyhow;
 
 fn main() {
-    cargo_toml_parse::main();
+    generic_where_plactice::main();
+    // cargo_toml_parse::main();
     panic!("end");
     abc362::main();
     use self::schema::posts::dsl::*;
