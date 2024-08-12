@@ -674,3 +674,49 @@ struct A{}で定義して impl A{}でメソッドを実装すると let a=A{};a.
 rust の enum は奥が深い
 普通のリテラルと数値を紐づけるだけではなく、enum に struct を入れ込んだりできる
 https://vscode.dev/github/0num4/cargo-workspace-test/blob/feat/chapter5_is_too_hard/add-one/src/lib.rs#L1
+
+## closure について
+
+https://doc.rust-jp.rs/rust-by-example-ja/fn/closures.html
+
+- python の lambda 式が近い
+- 外側にある関数を補足することができる
+- 関数では引数を()で囲むがクロージャーでは||で囲む。一行ならば{}は省略できる
+- それ以外は型情報など関数と同じ
+- 関数の型は `impl Fn(i32) -> i32` で表記できる
+- ↑ で関数の型は impl Fn(i32) -> i32 で表記できると書いたがジェネリクスを使えば impl は不要になる。下は全く同じことをやっている図。
+
+### FnOnce() FnMut, Fn について
+
+https://qiita.com/hiratasa/items/c1735dc4c7c78b0b55e9
+
+```rust
+fn koukai() {
+    // クロージャーは関数の外側にある変数を補足することができる
+    let n = 4;
+    let l = |x: i32| x * n;
+    fn koukai2(f: impl Fn(i32) -> i32) {
+        let ls = f(4);
+        println!("{}", ls);
+    }
+    koukai2(l)
+}
+
+use anyhow::Result;
+fn koukai3() {
+    // クロージャーは関数の外側にある変数を補足することができる
+    let n = 4;
+    let l = |x: i32| x * n;
+    // 関数内関数では同じ関数名が使える
+    fn koukai2<F>(f: F) -> Result<()>
+    where
+        F: Fn(i32) -> i32,
+    {
+        let ls = f(4);
+        println!("{}", ls);
+        Ok(())
+    }
+    koukai2(l);
+}
+
+```
