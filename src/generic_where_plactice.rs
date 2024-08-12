@@ -16,6 +16,10 @@ impl<T> SS<T> for N<T> {
     }
 }
 
-fn genericsample<T, X: SS<T>>(argx: X) -> i32 {
+// whereは戻り値の後ろにつける
+fn genericsample<T, X>(argx: X) -> i32
+where
+    X: SS<T>,
+{
     return argx.ss();
 }
