@@ -28,6 +28,7 @@ use models::Post;
 use rust_playground::*;
 mod abc362;
 mod rust_study20240812;
+mod rust_study20240812_anyhow;
 
 fn main() {
     abc362::main();
