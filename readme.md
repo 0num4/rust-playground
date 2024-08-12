@@ -51,6 +51,23 @@ box は正確にはヒープ上の T におかれたスマートポインタ
 
 dyn は trait を作成する時に使われる
 
+```
+struct Shape{
+
+}
+trait Rect{
+    fn a()->i32
+}
+impl Rect for Shape{}
+このとき
+let aa = Shape{}はよくやると思うが。Shapeは他の場所から呼べる。
+trait自体を扱いたいときはdyn Rectで引数に渡したりできる。これをtrait objectと呼ぶ
+```
+
+### Box<dyn Shape>の意味
+
+Shape trait を実装した struct をポインターで包んだもの。pointer は box で包める。
+
 ## tokio2
 
 tcplistener で listen 出来て、tcpstream で get できる
@@ -135,6 +152,10 @@ Ok(val)で Result が作れる
 ![alt text](image.png)
 ?は剥がすのではなく伝搬させる
 https://claude.ai/chat/0778e660-3c79-46fb-b1a4-b4757c03a484
+
+# ?について
+
+?は Result にも Option にも使える
 
 # file::open
 
@@ -609,3 +630,9 @@ info: installing component 'rustfmt'
 info: checking for self-update
 
 ```
+
+# struct について
+
+**struct には実装も実装できる**
+struct A{}で定義して impl A{}でメソッドを実装すると let a=A{};a.a()で呼び出せる！
+実装するメソッドを制限したい場合は trait が使える！trait を使うといろんな struct に共通の振る舞いを矯正できる！
