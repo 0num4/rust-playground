@@ -8,6 +8,12 @@ struct N {
     s: i32,
 }
 
+impl N {
+    pub fn ss(&self) -> i32 {
+        return self.s * self.s;
+    }
+}
+
 fn genericsample(argx: N) -> i32 {
-    return argx.s;
+    return argx.ss();
 }
