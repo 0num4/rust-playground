@@ -137,3 +137,71 @@ pub fn q2() {
     }
     println!("{:?}", aa);
 }
+
+// fn q3() {
+//     // dynに関するもっと難しい問題を出して
+
+//     // 了解しました。より難しいdynに関する問題を出題します。この問題では、トレイトオブジェクト、ジェネリクス、クロージャ、そしてライフタイムの概念を組み合わせます。
+
+//     // 問題：
+
+//     // あなたは、様々な種類のデータ変換を行うライブラリを開発しています。このライブラリは、異なる型のデータに対して異なる変換を適用できる必要があります。以下の要件を満たすコードを実装してください：
+
+//     // Transform トレイトを定義してください。このトレイトは以下のメソッドを持ちます：
+//     // transform(&self, data: &str) -> String: 入力文字列を変換して新しい文字列を返します。
+//     // name(&self) -> &str: 変換の名前を返します。
+//     // 以下の構造体を定義し、それぞれ Transform トレイトを実装してください：
+//     // UpperCase: 文字列を大文字に変換します。
+//     // Reverse: 文字列を逆順にします。
+//     // AddPrefix<'a>: 文字列の先頭に特定のプレフィックスを追加します。このプレフィックスはライフタイム 'a を持ちます。
+//     // TransformPipeline 構造体を定義してください。この構造体は：
+//     // Vec<Box<dyn Transform>> 型のフィールドを持ち、複数の変換を順番に適用できるようにします。
+//     // add_transform メソッドを持ち、新しい変換を追加できるようにします。
+//     // apply メソッドを持ち、すべての変換を順番に適用して結果を返します。
+//     // create_custom_transform 関数を実装してください。この関数は：
+//     // クロージャを引数として受け取り、そのクロージャを使用して Transform トレイトを実装する新しい型を返します。
+//     // 返される型は Box<dyn Transform> です。
+//     // メイン関数で：
+//     // TransformPipeline のインスタンスを作成します。
+//     // 事前定義された変換（UpperCase, Reverse, AddPrefix）と、create_custom_transform を使用してカスタム変換を追加します。
+//     // パイプラインに文字列を適用し、結果を出力します。
+//     // ボーナス課題：
+//     // 6. TransformPipeline に parallel_apply メソッドを追加してください。このメソッドは rayon クレートを使用して変換を並列に適用します。
+
+//     // この問題は、dynの高度な使用法、ジェネリクス、クロージャ、ライフタイム、そして並列処理の概念を組み合わせています。実装が完了したら、コードを共有してください。その後、解答の解説と改善点について議論しましょう。
+//     trait Transform {
+//         fn transform(&self, s: &str) -> String;
+//         fn name(&self) -> &str;
+//     }
+//     struct UpperCase {}
+//     impl Transform for UpperCase {
+//         fn transform(&self, s: &str) -> String {
+//             return s.to_uppercase().to_string();
+//         }
+//         fn name(&self) -> &str {
+//             return "Transform";
+//         }
+//     }
+//     struct Reverse {}
+//     struct AddPrefix {}
+//     struct TransformPipeline {
+//         v: Vec<Box<dyn Transform>>,
+//     }
+//     impl TransformPipeline {
+//         fn apply(&self) -> None {
+//             for i in self.v {
+//                 i.transform("nya")
+//             }
+//         }
+//     }
+//     let cl = |clarg| -> Box<dyn Transform> {
+//         let a = clarg{
+
+//         }
+//         return ;
+//     };
+//     fn create_custom_transform<S, F: Transform>(s: S, f:F) -> Box<dyn Transform>{
+
+//     }
+// }
+// えー↑は難しすぎるので廃棄
