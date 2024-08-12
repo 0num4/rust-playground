@@ -40,6 +40,47 @@
 //     T: Shape,
 // {
 // }
+pub fn q1() {
+    // 問題：
+    // あるデータ構造 Shape があり、それを実装する異なる形状（例えば、Circle や Rectangle）があるとします。これらの形状はそれぞれの面積を計算するメソッド area を持っています。
+
+    // この問題では、ジェネリック型とトレイト境界 (where) を使用して、複数の形状に対して共通のインターフェースを定義し、それぞれの形状の面積を計算するメソッドを実装してください。
+
+    // 要件：
+    // 構造体 Circle と Rectangle を定義し、それぞれに必要なフィールドを含める。
+    // それぞれの構造体に impl ブロックを使って area メソッドを実装する。
+    // トレイト Shape を定義し、このトレイトに area メソッドのシグネチャを含める。
+    // where を使ってジェネリックな関数 print_area を実装し、Shape を実装している型のみを受け入れる。この関数は受け取った形状の面積を出力する。
+    // 制約：
+    // where 節を用いて、ジェネリック関数のトレイト境界を指定してください。
+    // 各形状の area メソッドは正確な面積を返すように実装してください。
+    trait Shape {
+        fn area(&self) -> i32;
+    }
+    struct Circle {
+        r: i32,
+    }
+    impl Shape for Circle {
+        fn area(&self) -> i32 {
+            return self.r * self.r * PI as i32;
+        }
+    }
+    struct Rectangle {
+        x: i32,
+        y: i32,
+    }
+    impl Shape for Rectangle {
+        fn area(&self) -> i32 {
+            return self.x * self.y;
+        }
+    }
+    fn print_area<T>(arg: T) -> i32
+    where
+        T: Shape,
+    {
+        return arg.area();
+    }
+}
 
 use std::f32::consts::PI;
 
