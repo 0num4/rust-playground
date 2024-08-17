@@ -5,7 +5,8 @@ pub fn main() {
         w: [i32; n]
     }
     // a();
-    b(n, &w);
+    let ans = b(n, &w);
+    println!("{}", ans);
 }
 
 fn a() {
@@ -15,7 +16,7 @@ fn a() {
 // 累積和の練習
 // https://atcoder.jp/contests/abc129/tasks/abc129_b
 fn b(n: i32, w: &[i32]) -> i32 {
-    println!("{:?}", w);
+    // println!("{:?}", w);
     let mut sum = 1000;
     for wi in 0..n {
         let mut prev = 0;
@@ -26,9 +27,9 @@ fn b(n: i32, w: &[i32]) -> i32 {
         for wk in wi..n {
             end += w[wk as usize];
         }
-        println!("{:?}", prev);
-        println!("{:?}", end);
-        println!("sub {:?}", prev - end);
+        // println!("{:?}", prev);
+        // println!("{:?}", end);
+        // println!("sub {:?}", prev - end);
         if (prev - end).abs() < sum {
             sum = (prev - end).abs();
         }
