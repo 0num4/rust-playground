@@ -27,6 +27,7 @@ use diesel::prelude::*;
 use models::Post;
 use rust_playground::*;
 mod abc362;
+mod abc367;
 mod cargo_toml_parse;
 mod generic_where_plactice;
 mod rust_study20240812;
@@ -35,6 +36,7 @@ mod rust_study20240812_anyhow;
 fn main() {
     generic_where_plactice::main();
     // cargo_toml_parse::main();
+    abc367::main();
     panic!("end");
     abc362::main();
     use self::schema::posts::dsl::*;
